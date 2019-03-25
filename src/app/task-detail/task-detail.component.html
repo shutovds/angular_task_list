@@ -1,15 +1,46 @@
 <div *ngIf="task">
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
-  <h2>{{task.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{task.id}}</div>
-
-  <span *ngIf="task.id > 14">222</span>
-
-  <div>
-    <label>name:
-      <input [(ngModel)]="task.name" placeholder="name"/>
-    </label>
+  <h2>Task: {{task.name | uppercase}}</h2>
+  <!-- <div><span>id: </span>{{task.id}}</div> -->
+  
+<h5>You can Change parameters of task and Save it</h5>
+  <!-- <span *ngIf="task.id > 14">{{ task.estimate }}</span> -->
+<div class="tasks">
+  <div class="head">
+      <div class="list">
+      <div class="line">
+        <span class="name">Task Name</span>
+        <span class="description">Task Description</span> 
+        <span class="estimate">Task Estimate</span> 
+        <span class="state">Task State</span>
+      </div>
+      </div>
   </div>
 
+    <div class="head">
+        <div class="list">
+        <div class="line">
+          <input class="name" 
+              [(ngModel)]="task.name" 
+              placeholder="task name"/>
+          <input class="description" 
+              [(ngModel)]="task.description" 
+              placeholder="task description"/>
+          <input class="estimate" 
+              [(ngModel)]="task.estimate" 
+              placeholder="task estimate"/>
+          <select class="state"
+              [(ngModel)]="task.state">
+              <option value="Planned">Planned</option>
+              <option value="In progress">In progress</option>
+              <option value="Completed">Completed</option>
+          </select>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+
 </div>
+

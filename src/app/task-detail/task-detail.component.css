@@ -1,0 +1,73 @@
+/* TasksDetailComponent's private CSS styles */
+.tasks {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 75%;
+}
+
+.head {
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);    
+    grid-gap: .3em;
+    background-color: silver;
+    margin: .3em;
+}
+
+  .list {
+    grid-column: span 19/21;
+  }
+
+  .line {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);    
+    grid-gap: .3em;
+    padding: .3em;
+    margin: 0px;
+  }
+
+  .name {
+    grid-column: span 6;
+    color: black;
+  }
+
+
+  .description {
+    grid-column: span 8;
+  }
+
+  .estimate {
+    grid-column: span 2;
+    padding-right: 5px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .state {
+    grid-column: span 4;
+    text-align: center;
+  }
+
+  button {
+    grid-column: span 1;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    font-family: Arial;
+    font-size: 1.2em;
+  }
+    
+  button:hover {
+    background-color: #cfd8dc;
+  }
+    
+  button.delete {
+  
+    background-color: gray !important;
+    color: white;
+  }

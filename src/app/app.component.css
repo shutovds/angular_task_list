@@ -1,7 +1,7 @@
     /* AppComponent's private CSS styles */
     h1 {
-        font-size: 1.2em;
-        color: #999;
+        font-size: 2.2em;
+        color: rgb(29, 32, 78);
         margin-bottom: 0;
       }
       h2 {
@@ -9,6 +9,7 @@
         margin-top: 0;
         padding-top: 0;
       }
+
       nav a {
         padding: 5px 10px;
         text-decoration: none;

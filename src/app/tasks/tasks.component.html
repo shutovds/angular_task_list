@@ -1,23 +1,72 @@
-<h2>Tasks</h2>
+<h4>Estimated time summary:</h4>
 
-<!-- <span *ngIf="tasks.length > 14">222</span> -->
+  <h5 *ngIf="planned !==0">
+    Planned tasks:  {{planned}} hours</h5>
+  <h5 *ngIf="inProgress !==0">
+    In progress tasks:  {{inProgress}} hours</h5>
+  <h5 *ngIf="completed !==0">
+    Completed tasks:  {{completed}} hours</h5>
 
-<div>
-    <label>Task name:
-      <input #taskName />
-    </label>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(taskName.value); taskName.value=''">
-      add
-    </button>
-</div>
+
+<h4 *ngIf="tasks.length >0; else elseblock">Number of tasks: 
+    {{tasks.length}}</h4>
 
 <ul class="tasks">
-    <li *ngFor="let task of tasks">
-      <a routerLink="/detail/{{task.id}}">
-        <span class="badge">{{task.id}}</span> {{task.name}}
-      </a>
+
+    <div class="head">
+        <div class="list">
+        <div class="line">
+          <input class="name"
+            #taskName              
+            placeholder="task name"/>
+          <input class="description"
+            #taskDescription              
+            placeholder="task description"/> 
+          <input class="estimate"
+            #taskEstimate
+            placeholder="task estimate"/> 
+          <select class="state" #taskState>Task State
+            <option value="Planned">Planned</option>
+            <option value="In progress">In progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+        </div>
+      </div>
+
+    <button (click)="add(taskName.value, 
+                        taskDescription.value,
+                        taskEstimate.value,
+                        taskState.value); 
+                        taskName.value=''; 
+                        taskDescription.value='';
+                        taskEstimate.value=''">
+                        Add new Task
+    </button>
+
+      <div class="head">
+          <div class="list">
+          <div class="line">
+            <span class="name">Task Name</span>
+            <span class="description">Task Description</span> 
+            <span class="estimate">Task Estimate</span> 
+            <span class="state">Task State</span>
+          </div>
+          </div>
+        </div>
+
+  <li *ngFor="let task of tasks">
       <button class="delete" title="delete task"
       (click)="delete(task)">x</button>
-    </li>
+    <a routerLink="/detail/{{task.id}}">
+      <div class="line">
+      <span class="name">{{task.name}}</span>
+      <span class="description">{{task.description}}</span> 
+      <span class="estimate">{{task.estimate}}</span> 
+      <span class="state">{{task.state}}</span>
+      </div>
+    </a>   
+  </li>
 </ul>
+
+
