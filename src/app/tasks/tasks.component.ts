@@ -38,14 +38,12 @@ export class TasksComponent implements OnInit {
   add(name: string, description: string,
       estimate: string, state: string): void {
     name = name.trim();
-    console.log(name, description);
     if (!name) { return; }
     this.taskService.addTask(
       { name, description, estimate, state } as Task)
       .subscribe(task => {
         this.tasks.push(task);
       });
-    console.log(Task);
   }
 
   delete(task: Task): void {
@@ -72,7 +70,6 @@ export class TasksComponent implements OnInit {
         completed = completed + (+task.estimate);
       }
     }
-    console.log('calculate() was call');
     this.planned = planned;
     this.inProgress = inProgress;
     this.completed =  completed;
